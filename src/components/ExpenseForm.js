@@ -20,6 +20,7 @@ const ExpenseForm = ({
             className='form-control'
             placeholder='e.g rent'
             value={charge}
+            required
           />
         </div>
         <div className='form-group'>
@@ -34,6 +35,7 @@ const ExpenseForm = ({
             className='form-control'
             placeholder='e.g 1000'
             value={amount}
+            required
           />
         </div>
       </div>
