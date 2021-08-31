@@ -74,6 +74,12 @@ function App() {
   function handleClearAll() {
     setExpenses([]);
   }
+  // clear one item
+  function handleClearOne(id) {
+    setExpenses(() => {
+      return expenses.filter((exp) => exp.id !== id);
+    });
+  }
   return (
     <>
       {alert.show && <Alert type={alert.type} text={alert.text} />}
@@ -87,7 +93,11 @@ function App() {
           handleAmount={handleAmount}
           submitForm={submitForm}
         />
-        <ExpenseList handleClearAll={handleClearAll} expenses={expenses} />
+        <ExpenseList
+          handleClearOne={handleClearOne}
+          handleClearAll={handleClearAll}
+          expenses={expenses}
+        />
       </main>
       <h1>
         Total Spending:
