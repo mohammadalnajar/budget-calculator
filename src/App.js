@@ -37,12 +37,13 @@ function App() {
     setAlert({ show: true, type, text });
     setTimeout(() => {
       setAlert({ show: false });
-    }, 3000);
+    }, 6000);
   }
   function submitForm(e) {
     e.preventDefault();
+    const characters = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
     if (
-      !/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/.test(charge) &&
+      !characters.test(charge) &&
       /^[a-zA-Z\s]*$/.test(charge) &&
       charge !== '' &&
       typeof charge !== 'number' &&
@@ -64,7 +65,7 @@ function App() {
     } else {
       handleAlert({
         type: 'danger',
-        text: 'The operation is not completed, please try again',
+        text: `Special characters like these: ${characters} or numbers are not allowed in the charge field and amount should be bigger than zero`,
       });
     }
   }
