@@ -69,6 +69,11 @@ function App() {
       });
     }
   }
+
+  // clear all items
+  function handleClearAll() {
+    setExpenses([]);
+  }
   return (
     <>
       {alert.show && <Alert type={alert.type} text={alert.text} />}
@@ -82,7 +87,7 @@ function App() {
           handleAmount={handleAmount}
           submitForm={submitForm}
         />
-        <ExpenseList expenses={expenses} />
+        <ExpenseList handleClearAll={handleClearAll} expenses={expenses} />
       </main>
       <h1>
         Total Spending:
