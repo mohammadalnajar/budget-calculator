@@ -1,7 +1,13 @@
 import React from 'react';
 import Item from './ExpenseItem';
 import { MdDelete } from 'react-icons/md';
-const ExpenseList = ({ expenses, handleClearAll, handleClearOne }) => {
+const ExpenseList = ({
+  expenses,
+  handleClearAll,
+  handleClearOne,
+  handleEditItem,
+  edit,
+}) => {
   return (
     <>
       <ul className='list'>
@@ -11,6 +17,8 @@ const ExpenseList = ({ expenses, handleClearAll, handleClearOne }) => {
               key={expense.id}
               expense={expense}
               handleClearOne={handleClearOne}
+              handleEditItem={handleEditItem}
+              edit={edit}
             />
           );
         })}
